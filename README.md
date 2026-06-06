@@ -1,4 +1,4 @@
-# haogroot.gihub.io
+# haogroot.github.io
 
 Hugo source for the GitHub Pages site.
 

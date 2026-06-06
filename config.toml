@@ -1,4 +1,4 @@
-baseURL = "https://haogroot.github.io/haogroot.gihub.io/"
+baseURL = "https://haogroot.github.io/"
 title = "haogroot blog"
 theme = "hugo-coder"
 locale = "en"
