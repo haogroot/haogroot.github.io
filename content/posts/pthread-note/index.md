@@ -5,9 +5,7 @@ categories:
   - "程式設計"
 ---
 
-pthread 是 POSIX 下的執行緒標準，針對 thread 的建立與操作定義一系列的 API 。
-
-而且在 Windows 環境下，則有 3rd-party 透過 Windows API 實現的 [pthreads-win32](http://sourceware.org/pthreads-win32/#download) ，對於要開發誇平台的軟體， pthread 就會是開發 multi-thread 時的首選。
+pthread 是 POSIX 標準下的 Thread 規範，定義了一系列用於建立與操作 Thread 的 API。在 Windows 環境下，也有第三方（3rd-party）透過 Windows API 實作的 [pthreads-win32](http://sourceware.org/pthreads-win32/#download) 支援。因此，對於需要開發跨平台（Cross-platform）軟體的開發者來說，pthread 無疑是實作 Multi-thread 的首選。
 
 # 建立 thread
 
@@ -152,7 +150,7 @@ int main () {
 程式碼中建立兩個 thread ，分別對變數 val 進行加 1 的動作，兩個 thread 加起來總共執行 6 次加 1 ，預期 main thread 中應該得到回傳值為 6 ，但以下結果卻顯示結果為 3 。
 
 ```bash
-❯ ./a.out 
+❯ ./a.out
 input->val = 1
 input->val = 1
 input->val = 2
@@ -216,7 +214,7 @@ int main () {
 
 當希望一個 thread 能夠暫時 sleep ，等待某個條件完成後再醒來，就可以透過 condition variable 來協助，很經典的 producer-consumer problem 就可以透過 condition variable 協助。
 
-假設便當店只有一位老闆，老闆不是再做便當就是再幫客人結帳，老闆每次可以做 6 個便當，為了確保便當新鮮，如果便當還剩下2個以上，就開始去幫客人結帳。
+假設便當店只有一位老闆，老闆不是再做便當就是再幫客人結帳，老闆每次可以做 6 個便當，為了確保便當新鮮，如果便當還剩下 2 個以上，就開始去幫客人結帳。
 
 而客人會不斷來買便當，當便當只剩 2 個的時候，客人買完後，老闆就會知道該去做便當了 ，當老闆去做便當時候，客人就無法結帳了，只能等老闆有空。
 
@@ -287,7 +285,7 @@ int main () {
 執行結果：
 
 ```bash
-❯ ./a.out 
+❯ ./a.out
 Consumer buys 2 bento. Left 0 bento.
 Call boss to make bento
 
@@ -373,7 +371,7 @@ int main () {
 ```
 
 ```bash
-❯ ./a.out 
+❯ ./a.out
 Consumer buys 2 bento. Left 0 bento.
 Call boss to make bento
 
@@ -433,7 +431,7 @@ int main ()
 ```
 
 ```bash
-❯ ./a.out 
+❯ ./a.out
 Post 2 jobs
 Execute 0 times
 Execute 1 times
@@ -456,9 +454,9 @@ condition variable 透過 `pthread_cond_broadcast ()` 可以一次叫醒所有 s
 # Reference
 
 1. [POSIX thread (pthread) libraries - YoLinux](http://www.yolinux.com/TUTORIALS/LinuxTutorialPosixThreads.html)
-2. [understanding of pthread\_cond\_wait() and pthread\_cond\_signal() - stackoverflow](https://stackoverflow.com/questions/16522858/understanding-of-pthread-cond-wait-and-pthread-cond-signal)
+2. [understanding of pthread_cond_wait() and pthread_cond_signal() - stackoverflow](https://stackoverflow.com/questions/16522858/understanding-of-pthread-cond-wait-and-pthread-cond-signal)
 3. [C 語言 pthread 多執行緒平行化程式設計入門教學與範例](https://blog.gtwang.org/programming/pthread-multithreading-programming-in-c-tutorial/)
 4. [CS 365: Lecture 10: Condition Variables](https://ycpcs.github.io/cs365-spring2017/lectures/lecture10.html)
-5. [pthread\_cond\_wait versus semaphore - stackoverflow](https://stackoverflow.com/a/108918/4545634)
+5. [pthread_cond_wait versus semaphore - stackoverflow](https://stackoverflow.com/a/108918/4545634)
 6. [Conditional Variable vs Semaphore - stackoverflow](https://stackoverflow.com/questions/3513045/conditional-variable-vs-semaphore)
 7. Linux man page
